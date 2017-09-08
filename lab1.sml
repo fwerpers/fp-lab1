@@ -1,0 +1,76 @@
+(* Reduction, Specification and Variant *)
+(* 1. Step-by-step evaluation *)
+(*
+product 3
+ -> 3 * product (3-1)
+ -> 3 * product 2
+ -> 3 * 2 * product (2-1)
+ -> 3 * 2 * product 1
+ -> 3 * 2 * 1
+ -> 6 * 1
+ -> 6
+ *)
+
+(* 2. It computes the factorial *)
+
+(* 3. Specification *)
+(* product n
+TYPE: int -> int
+PRE: n >= 1
+POST: n! (factorial of n)
+EXAMPLES: product 3 = 6
+*)
+
+(* 4. Variant *)
+(* VARIANT: n *)
+
+(* Currying *)
+(* Function declaration *)
+val minus = fn x => fn y => x - y;
+(* foo will get the value 1 *)
+(* bar will be a function fn y => 5 - y *)
+(*
+minus 5 4
+-> (fn x => fn y => x - y) 5 4
+-> (fn y => 5 - y) 4
+-> 5 - 4
+-> 1
+*)
+
+fun plus x y = x + y;
+
+(* Types *)
+fun fun1 x : int = x;
+
+fun fun2 x y : int = x + y;
+
+fun fun3 (x : int) = (x, x);
+
+fun fun4 (x : int, y : int) = x + y;
+
+fun fun5 x y z = if x>0 andalso y>0.0 then z^"" else "";
+
+fun fun6 (a, (b, c, d)) = (a + d + 1, b ^ c);
+
+(* Least Common Multiple *)
+(* See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm*)
+fun gcd (0, n) = n
+  | gcd (m, n) = gcd (n mod m, m);
+
+fun lcm2 a b = a*b div gcd(a,b);
+
+(* lcm n
+TYPE: int -> int
+PRE: n >= 1
+POST: largest common multiple of 1,...,n
+EXAMPLES: lcm 10 = 2520
+    lcm 0 = 0
+*)
+fun lcm n =
+    let
+        fun helper 1 = 1
+          | helper a = lcm2 (helper (a-1)) a
+    in
+        if n < 1 then 0 else
+        helper n
+    end;
