@@ -17,7 +17,7 @@ product 3
 (* product n
 TYPE: int -> int
 PRE: n >= 1
-POST: n! (factorial of n)
+POST: n! (factorial of n), except 0! is not defined
 EXAMPLES: product 3 = 6
 *)
 
