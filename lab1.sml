@@ -106,7 +106,7 @@ See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
 fun gcd (0, n) = n
   | gcd (m, n) = gcd (n mod m, m);
 
-(* gcd (x, y)
+(* lcm2 (x, y)
    TYPE: int * int -> int
    PRE: true
    POST: returns the least common multiple of x and y
