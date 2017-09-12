@@ -56,7 +56,7 @@ fun fun6 (a, (b, c, d)) = (a + d + 1, b ^ c);
 fun gcd (0, n) = n
   | gcd (m, n) = gcd (n mod m, m);
 
-fun lcm2 a b = a*b div gcd(a,b);
+fun lcm2 a b = a*b div gcd (a, b);
 
 (* lcm n
    TYPE: int -> int
