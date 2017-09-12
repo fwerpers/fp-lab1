@@ -28,14 +28,18 @@ EXAMPLES: product 3 = 6
 val minus = fn x => fn y => x - y;
 (* foo will get the value 1 *)
 (* bar will be a function fn y => 5 - y *)
-(*
-minus 5 4
+(* minus 5 4
 -> (fn x => fn y => x - y) 5 4
 -> (fn y => 5 - y) 4
 -> 5 - 4
 -> 1
 *)
 
+(* plus x y
+   TYPE: int -> int -> int
+   PRE: true
+   POST: x + y
+*)
 fun plus x y = x + y;
 
 (* Types *)
