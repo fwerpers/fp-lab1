@@ -26,23 +26,26 @@ VARIANT: n
 (*
 --- Currying ---
 *)
-(* Function declaration *)
+
+(* minus x y
+   TYPE: int -> int -> int
+   PRE: true
+   POST: x - y
+*)
 val minus = fn x => fn y => x - y;
-(* foo will get the value 1 *)
-(* bar will be a function fn y => 5 - y *)
-(* minus 5 4
+
+(*
+- foo will get the value 1
+
+- bar will be a function fn y => 5 - y
+
+- Step-by-step:
+minus 5 4
 -> (fn x => fn y => x - y) 5 4
 -> (fn y => 5 - y) 4
 -> 5 - 4
 -> 1
 *)
-
-(* plus x y
-   TYPE: int -> int -> int
-   PRE: true
-   POST: x + y
-*)
-fun plus x y = x + y;
 
 (*
 --- Types ---
@@ -125,3 +128,10 @@ fun lcm n =
         if n < 1 then 0 else
         helper n
     end;
+
+(* plus x y
+   TYPE: int -> int -> int
+   PRE: true
+   POST: x + y
+*)
+fun plus x y = x + y;
