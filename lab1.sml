@@ -103,8 +103,9 @@ See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
    PRE: true
    POST: returns the greatest common divisor of x and y
 *)
-fun gcd (0, n) = n
-  | gcd (m, n) = gcd (n mod m, m);
+(* VARIANT: x mod y *)
+fun gcd (a, 0) = a
+  | gcd (a, b) = gcd (b, a mod b);
 
 (* lcm2 (x, y)
    TYPE: int * int -> int
@@ -122,6 +123,11 @@ fun lcm2 a b = a*b div gcd (a, b);
 *)
 fun lcm n =
     let
+        (* helper a
+           TYPE: int -> int
+           PRE: n >= 1
+           POST: largest common multiple of 1,...,n*)
+        (* VARIANT: a *)
         fun helper 1 = 1
           | helper a = lcm2 (helper (a-1)) a
     in
