@@ -121,23 +121,5 @@ fun lcm2 a b = a*b div gcd (a, b);
    EXAMPLES: lcm 10 = 2520
              lcm 0 = 0
 *)
-fun lcm n =
-    let
-        (* helper a
-           TYPE: int -> int
-           PRE: n >= 1
-           POST: largest common multiple of 1,...,n*)
-        (* VARIANT: a *)
-        fun helper 1 = 1
-          | helper a = lcm2 (helper (a-1)) a
-    in
-        if n < 1 then 0 else
-        helper n
-    end;
-
-(* plus x y
-   TYPE: int -> int -> int
-   PRE: true
-   POST: x + y
-*)
-fun plus x y = x + y;
+fun lcm 1 = 1
+  | lcm n = if n < 1 then 0 else lcm2 (lcm (n-1)) n;
