@@ -98,10 +98,10 @@ fun fun6 (a : int, (b, c, d)) = (a + d, b ^ c);
 See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
 *)
 
-(* gcd (x, y)
+(* gcd (a, b)
    TYPE: int * int -> int
    PRE: true
-   POST: returns the greatest common divisor of x and y
+   POST: returns the greatest common divisor of a and b
 *)
 (* VARIANT: x mod y *)
 fun gcd (a, 0) = a
