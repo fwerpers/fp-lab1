@@ -59,11 +59,11 @@ fun gcd (0, n) = n
 fun lcm2 a b = a*b div gcd(a,b);
 
 (* lcm n
-TYPE: int -> int
-PRE: n >= 1
-POST: largest common multiple of 1,...,n
-EXAMPLES: lcm 10 = 2520
-    lcm 0 = 0
+   TYPE: int -> int
+   PRE: n >= 1
+   POST: largest common multiple of 1,...,n
+   EXAMPLES: lcm 10 = 2520
+      lcm 0 = 0
 *)
 fun lcm n =
     let
