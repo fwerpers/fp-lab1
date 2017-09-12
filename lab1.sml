@@ -43,23 +43,65 @@ val minus = fn x => fn y => x - y;
 fun plus x y = x + y;
 
 (* Types *)
+
+(* fun1 x
+   TYPE: int -> int
+   PRE: true
+   POST: x
+*)
 fun fun1 x : int = x;
 
+(* fun2 x y
+   TYPE: int -> int -> int
+   PRE: true
+   POST: x + y
+*)
 fun fun2 x y : int = x + y;
 
+(* fun3 x
+   TYPE: int -> int * int
+   PRE: true
+   POST: returns a 2-element tuple with copies of x
+*)
 fun fun3 (x : int) = (x, x);
 
+(* fun4 (x, y)
+   TYPE: int * int -> int
+   PRE: true
+   POST: x + y
+*)
 fun fun4 (x : int, y : int) = x + y;
 
+(* fun5 x y z
+   TYPE: int -> real -> string -> string
+   PRE: true
+   POST: returns z if x and y are larger than 0, otherwise an empty string
+*)
 fun fun5 x y z = if x>0 andalso y>0.0 then z^"" else "";
 
-fun fun6 (a, (b, c, d)) = (a + d + 1, b ^ c);
+(* fun6 (a, (b, c, d))
+   TYPE: int * (string * string * int) -> int * string
+   PRE: true
+   POST: returns 2-element tuple with the sum of a and d and the concatenation of b and c
+*)
+fun fun6 (a : int, (b, c, d)) = (a + d, b ^ c);
 
 (* Least Common Multiple *)
 (* See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm*)
+
+(* gcd (x, y)
+   TYPE: int * int -> int
+   PRE: true
+   POST: returns the greatest common divisor of x and y
+*)
 fun gcd (0, n) = n
   | gcd (m, n) = gcd (n mod m, m);
 
+(* gcd (x, y)
+   TYPE: int * int -> int
+   PRE: true
+   POST: returns the least common multiple of x and y
+*)
 fun lcm2 a b = a*b div gcd (a, b);
 
 (* lcm n
@@ -67,7 +109,7 @@ fun lcm2 a b = a*b div gcd (a, b);
    PRE: n >= 1
    POST: largest common multiple of 1,...,n
    EXAMPLES: lcm 10 = 2520
-      lcm 0 = 0
+             lcm 0 = 0
 *)
 fun lcm n =
     let
