@@ -103,7 +103,7 @@ See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
    PRE: true
    POST: returns the greatest common divisor of a and b
 *)
-(* VARIANT: x mod y *)
+(* VARIANT: b *)
 fun gcd (a, 0) = a
   | gcd (a, b) = gcd (b, a mod b);
 
