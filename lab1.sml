@@ -1,29 +1,27 @@
 (*
 --- Reduction, Specification and Variant ---
-*)
-(* 1. Step-by-step evaluation *)
-(* product 3
- -> 3 * product (3-1)
- -> 3 * product 2
- -> 3 * 2 * product (2-1)
- -> 3 * 2 * product 1
- -> 3 * 2 * 1
- -> 6 * 1
- -> 6
- *)
+1. (Step-by-step evaluation)
+product 3
+-> 3 * product (3-1)
+-> 3 * product 2
+-> 3 * 2 * product (2-1)
+-> 3 * 2 * product 1
+-> 3 * 2 * 1
+-> 6 * 1
+-> 6
 
-(* 2. It computes the factorial *)
+2. It computes the factorial.
 
-(* 3. Specification *)
-(* product n
+3. (Specification)
+product n
 TYPE: int -> int
 PRE: n >= 1
 POST: n! (factorial of n), except 0! is not defined
 EXAMPLES: product 3 = 6
-*)
 
-(* 4. Variant *)
-(* VARIANT: n *)
+4. (Variant)
+VARIANT: n
+*)
 
 (*
 --- Currying ---
