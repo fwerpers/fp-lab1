@@ -1,4 +1,6 @@
-(* Reduction, Specification and Variant *)
+(*
+--- Reduction, Specification and Variant ---
+*)
 (* 1. Step-by-step evaluation *)
 (* product 3
  -> 3 * product (3-1)
@@ -23,7 +25,9 @@ EXAMPLES: product 3 = 6
 (* 4. Variant *)
 (* VARIANT: n *)
 
-(* Currying *)
+(*
+--- Currying ---
+*)
 (* Function declaration *)
 val minus = fn x => fn y => x - y;
 (* foo will get the value 1 *)
@@ -42,7 +46,9 @@ val minus = fn x => fn y => x - y;
 *)
 fun plus x y = x + y;
 
-(* Types *)
+(*
+--- Types ---
+*)
 
 (* fun1 x
    TYPE: int -> int
@@ -86,8 +92,10 @@ fun fun5 x y z = if x>0 andalso y>0.0 then z^"" else "";
 *)
 fun fun6 (a : int, (b, c, d)) = (a + d, b ^ c);
 
-(* Least Common Multiple *)
-(* See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm*)
+(*
+--- Least Common Multiple ---
+See https://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
+*)
 
 (* gcd (x, y)
    TYPE: int * int -> int
