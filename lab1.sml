@@ -1,7 +1,6 @@
 (* Reduction, Specification and Variant *)
 (* 1. Step-by-step evaluation *)
-(*
-product 3
+(* product 3
  -> 3 * product (3-1)
  -> 3 * product 2
  -> 3 * 2 * product (2-1)
